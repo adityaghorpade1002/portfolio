@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aditya Ghorpade | Full Stack Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .glass{background:rgba(15,23,42,.8);backdrop-filter:blur(16px);}
+      .reveal{opacity:0;transform:translateY(40px);transition:.7s}
+      .reveal-left{opacity:0;transform:translateX(-60px);transition:.7s}
+      .reveal-right{opacity:0;transform:translateX(60px);transition:.7s}
+      .active{opacity:1;transform:none}
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100">
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
+    <a href="#hero" class="flex items-center gap-3">
+      <img src="portfolio.jpg" class="h-10 w-10 rounded-full object-cover border border-primary">
+      <div class="leading-tight">
+        <p class="text-sm font-semibold">Aditya Ghorpade</p>
+        <p class="text-xs text-slate-400">Full Stack Developer</p>
+      </div>
+    </a>
+  </div>
+</header>
+
+<main class="mx-auto mt-24 max-w-6xl px-4 pb-16">
+<section id="hero" class="reveal grid gap-10 py-10 md:grid-cols-[3fr,2fr] md:items-center">
+  <div class="space-y-6">
+    <h1 class="text-4xl font-bold">Hi, I'm <span class="text-primary">Aditya Ghorpade</span></h1>
+    <p class="text-slate-300">Full Stack Developer & MCA Student</p>
+  </div>
+  <div class="reveal-right flex justify-center">
+    <img src="portfolio.jpg" class="h-72 w-72 rounded-3xl object-cover border border-slate-700 shadow-xl">
+  </div>
+</section>
+
+<p class="text-center text-slate-400 mt-20">Your full portfolio code goes here… (Shortened for ZIP demo)</p>
+
+</main>
+
+<script>
+const els=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const obs=new IntersectionObserver(e=>{e.forEach(x=>x.isIntersecting&&x.target.classList.add('active'))},{threshold:.2});
+els.forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
