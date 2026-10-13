@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aditya Ghorpade | Full Stack Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366F1",
+              secondary: "#22C55E",
+              dark: "#020617",
+              accent: "#F97316",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Glass effect */
+      .glass {
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      /* Scroll reveal animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.7s ease-out;
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition: all 0.7s ease-out;
+      }
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: all 0.7s ease-out;
+      }
+      .reveal.active,
+      .reveal-left.active,
+      .reveal-right.active {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100 font-sans">
+    <!-- NAVBAR -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4"
+      >
+        <a href="#hero" class="flex items-center gap-2">
+          <div
+            class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-primary to-secondary"
+          >
+            <span class="text-lg font-bold">AG</span>
+          </div>
+          <div class="leading-tight">
+            <p class="text-sm font-semibold">Aditya Ghorpade</p>
+            <p class="text-xs text-slate-400">Full Stack Developer</p>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden items-center gap-6 text-sm font-medium md:flex">
+          <a href="#about" class="text-slate-300 hover:text-primary">About</a>
+          <a href="#skills" class="text-slate-300 hover:text-primary">Skills</a>
+          <a href="#experience" class="text-slate-300 hover:text-primary"
+            >Experience</a
+          >
+          <a href="#projects" class="text-slate-300 hover:text-primary"
+            >Projects</a
+          >
+          <a href="#education" class="text-slate-300 hover:text-primary"
+            >Education</a
+          >
+          <a href="#achievements" class="text-slate-300 hover:text-primary"
+            >Achievements</a
+          >
+          <a href="#contact" class="text-slate-300 hover:text-primary"
+            >Contact</a
+          >
+          <a
+            href="mailto:adityaghorpade1002@gmail.com"
+            class="rounded-full border border-primary px-4 py-1.5 text-primary hover:bg-primary hover:text-white transition"
+            >Hire Me</a
+          >
+        </nav>
+
+        <!-- Mobile nav button -->
+        <button
+          id="mobile-menu-btn"
+          class="inline-flex items-center rounded-md border border-slate-700 p-2 text-slate-200 md:hidden"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            id="menu-icon"
+            class="h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile nav menu -->
+      <nav
+        id="mobile-menu"
+        class="glass mx-4 mt-2 hidden flex-col gap-2 rounded-2xl border border-slate-800 px-4 py-3 text-sm md:hidden"
+      >
+        <a href="#about" class="block py-1 text-slate-200">About</a>
+        <a href="#skills" class="block py-1 text-slate-200">Skills</a>
+        <a href="#experience" class="block py-1 text-slate-200">Experience</a>
+        <a href="#projects" class="block py-1 text-slate-200">Projects</a>
+        <a href="#education" class="block py-1 text-slate-200">Education</a>
+        <a href="#achievements" class="block py-1 text-slate-200"
+          >Achievements</a
+        >
+        <a href="#contact" class="block py-1 text-slate-200">Contact</a>
+        <a
+          href="mailto:adityaghorpade1002@gmail.com"
+          class="mt-2 block rounded-full bg-primary px-4 py-1.5 text-center text-white"
+          >Hire Me</a
+        >
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="mx-auto mt-20 max-w-6xl px-4 pb-16 md:mt-24 md:px-6 lg:px-0">
+      <!-- HERO -->
+  <!-- HERO WITH YOUR IMAGE -->
+<section
+  id="hero"
+  class="reveal grid gap-10 py-10 md:grid-cols-[3fr,2fr] md:items-center lg:py-16"
+>
+  <div class="space-y-6">
+    <div
+      class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-3 py-1 text-xs text-slate-300"
+    >
+      <span class="inline-flex h-2 w-2 rounded-full bg-secondary"></span>
+      <span>Available for internships & freelance</span>
+    </div>
+
+    <h1
+      class="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl"
+    >
+      Hi, I'm
+      <span
+        class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+      >
+        Aditya Ghorpade
+      </span>
+      <span class="block text-slate-300">
+        Full Stack Developer & MCA Student
+      </span>
+    </h1>
+
+    <p class="max-w-xl text-sm text-slate-300 sm:text-base">
+      I build scalable web applications and ERP systems using
+      <span class="font-semibold text-primary">Java</span>,
+      <span class="font-semibold text-primary">MERN</span> and modern
+      databases. Passionate about solving real-world problems through clean
+      code, strong architecture, and teamwork.
+    </p>
+
+    <div class="flex flex-wrap items-center gap-4">
+      <a
+        href="#projects"
+        class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-medium text-white shadow-lg shadow-primary/40 transition hover:translate-y-0.5 hover:bg-indigo-500"
+      >
+        View Projects ↗
+      </a>
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 rounded-full border border-slate-600 px-5 py-2 text-sm font-medium text-slate-200 hover:border-primary hover:text-primary"
+      >
+        Contact Me
+      </a>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex h-2 w-2 rounded-full bg-secondary"></span>
+        Pune, Maharashtra, India
+      </div>
+      <a
+        href="mailto:adityaghorpade1002@gmail.com"
+        class="hover:text-primary"
+        >adityaghorpade1002@gmail.com</a
+      >
+      <span>+91 73858 27935</span>
+    </div>
+
+    <div class="flex flex-wrap gap-3 text-xs">
+      <a
+        href="https://linkedin.com/in/aditya-ghorpade1002"
+        target="_blank"
+        class="rounded-full border border-slate-700 px-3 py-1 text-slate-300 hover:border-primary hover:text-primary"
+        >LinkedIn</a
+      >
+      <a
+        href="https://github.com/adityaghorpade"
+        target="_blank"
+        class="rounded-full border border-slate-700 px-3 py-1 text-slate-300 hover:border-primary hover:text-primary"
+        >GitHub</a
+      >
+      <a
+        href="#"
+        class="rounded-full border border-slate-700 px-3 py-1 text-slate-300 hover:border-primary hover:text-primary"
+        >Download Resume</a
+      >
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE: YOUR PROFILE IMAGE -->
+  <div class="reveal-right flex justify-center">
+    <img
+      src="portfolio.jpg"
+      alt="Aditya Ghorpade"
+      class="h-72 w-72 md:h-80 md:w-80 rounded-3xl object-cover shadow-xl shadow-primary/40 border border-slate-700 bg-slate-900 transition transform hover:scale-[1.02]"
+    />
+  </div>
+</section>
+
+
+      <!-- ABOUT -->
+      <section
+        id="about"
+        class="reveal-left border-t border-slate-800 py-12 md:py-16"
+      >
+        <div class="grid gap-10 md:grid-cols-[2fr,3fr]">
+          <div>
+            <h2
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400"
+            >
+              About
+            </h2>
+            <p class="mt-2 text-2xl font-semibold text-slate-100">
+              MCA student & full stack developer crafting clean, scalable
+              solutions.
+            </p>
+          </div>
+          <div class="space-y-4 text-sm text-slate-300 sm:text-base">
+            <p>
+              I'm an MCA student and full stack developer based in Pune with a
+              strong foundation in
+              <span class="font-semibold text-primary">Java, React.js, Node.js</span>
+              and relational as well as NoSQL databases. I enjoy designing and
+              developing systems that are not only functional, but also intuitive
+              and maintainable in the long run.
+            </p>
+            <p>
+              My work ranges from building
+              <span class="font-semibold">online exam systems</span> with
+              proctoring and cheating detection to full-fledged
+              <span class="font-semibold">college ERP platforms</span> that manage
+              students, faculty, attendance, and results with role-based access.
+            </p>
+            <p>
+              I’m comfortable working in
+              <span class="font-semibold">Agile teams</span> with Git, REST APIs,
+              and cloud-backed databases like
+              <span class="font-semibold">Supabase</span>, and I’m always eager to
+              explore new tools that make development faster and more robust.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section
+        id="skills"
+        class="reveal border-t border-slate-800 py-12 md:py-16"
+      >
+        <div
+          class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400"
+            >
+              Skills
+            </h2>
+            <p class="mt-2 text-2xl font-semibold text-slate-100">
+              Tech Stack & Tools
+            </p>
+          </div>
+          <p class="text-sm text-slate-400 md:max-w-md">
+            A balanced mix of backend, frontend, and database skills with strong
+            foundations in Java and JavaScript ecosystems.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <!-- Languages -->
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <h3 class="mb-2 text-sm font-semibold text-slate-100">
+              Programming Languages
+            </h3>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-slate-900 px-3 py-1">Java</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">JavaScript</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">PHP</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">C</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">C++</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Python</span>
+            </div>
+          </div>
+
+          <!-- Frameworks -->
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <h3 class="mb-2 text-sm font-semibold text-slate-100">
+              Frameworks & Libraries
+            </h3>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-slate-900 px-3 py-1">React.js</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Node.js</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Express.js</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Servlet</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">JSP</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">HTML5</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">CSS3</span>
+            </div>
+          </div>
+
+          <!-- Databases & Tools -->
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <h3 class="mb-2 text-sm font-semibold text-slate-100">
+              Databases & Tools
+            </h3>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-slate-900 px-3 py-1">MySQL</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">PostgreSQL</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">MongoDB</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Supabase</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Git</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">VS Code</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Eclipse</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">XAMPP</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Postman</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft skills -->
+        <div class="mt-8 glass rounded-3xl border border-slate-800 p-5 reveal">
+          <h3 class="mb-2 text-sm font-semibold text-slate-100">Soft Skills</h3>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="rounded-full bg-slate-900 px-3 py-1">Problem Solving</span>
+            <span class="rounded-full bg-slate-900 px-3 py-1">Teamwork</span>
+            <span class="rounded-full bg-slate-900 px-3 py-1">Communication</span>
+            <span class="rounded-full bg-slate-900 px-3 py-1">Time Management</span>
+          </div>
+        </div>
+      </section>
+
+     <!-- EXPERIENCE -->
+<section
+  id="experience"
+  class="reveal-right border-t border-slate-800 py-12 md:py-16"
+>
+  <div
+    class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+  >
+    <div>
+      <h2
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400"
+      >
+        Experience
+      </h2>
+      <p class="mt-2 text-2xl font-semibold text-slate-100">
+        Industrial & Internship Experience
+      </p>
+    </div>
+  </div>
+
+  <ol class="relative border-l border-slate-800 space-y-10 pl-6">
+    <li class="relative reveal">
+      <div
+        class="absolute -left-2.5 mt-1 h-4 w-4 rounded-full border-2 border-primary bg-slate-950"
+      ></div>
+
+      <div class="glass rounded-3xl border border-slate-800 p-5">
+        <div
+          class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
+        >
+          <div>
+            <h3 class="text-sm font-semibold text-slate-100">
+              IT Intern
+            </h3>
+
+            <p class="text-xs text-slate-400">
+              QLOAX LLP, Pune
+            </p>
+          </div>
+
+          <p class="text-xs text-slate-400">
+            Dec 2025 – April 2026
+          </p>
+        </div>
+
+        <ul class="mt-3 space-y-2 text-sm text-slate-300">
+          <li>
+            • Contributing to the development of
+            <span class="font-semibold text-primary">
+              Acadmyx – School/College ERP System
+            </span>.
+          </li>
+
+          <li>
+            • Assisting in backend modules, REST API integration, and database operations.
+          </li>
+
+          <li>
+            • Supporting automation and enterprise workflow features to improve system efficiency.
+          </li>
+
+          <li>
+            • Collaborating in Agile sprints, testing, and deployment processes with the development team.
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+</section>
+      <!-- PROJECTS -->
+      <section
+        id="projects"
+        class="reveal border-t border-slate-800 py-12 md:py-16"
+      >
+        <div
+          class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400"
+            >
+              Projects
+            </h2>
+            <p class="mt-2 text-2xl font-semibold text-slate-100">
+              Featured Work
+            </p>
+          </div>
+          <p class="text-sm text-slate-400 md:max-w-md">
+            Core academic projects that focus on security, proctoring, and
+            full-fledged ERP workflows.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+       <!-- Project 1 : CollegeFunda -->
+<article
+  class="glass group flex flex-col justify-between rounded-3xl border border-slate-800 p-5 transition hover:-translate-y-1 hover:border-primary/70 reveal-left"
+>
+  <div>
+    <div
+      class="mb-2 inline-flex items-center gap-2 text-xs text-slate-400"
+    >
+      <span
+        class="rounded-full bg-primary/20 px-2 py-0.5 text-[11px] text-primary"
+        >2025</span
+      >
+      <span>React.js • Node.js • Supabase • REST API</span>
+    </div>
+
+    <h3 class="text-lg font-semibold text-slate-100">
+      CollegeFunda – College Guidance Platform
+    </h3>
+
+    <p class="mt-2 text-sm text-slate-300">
+      A college guidance platform designed to help students explore courses,
+      colleges, and career-related information with a modern web experience.
+    </p>
+
+    <ul class="mt-3 space-y-1.5 text-xs text-slate-300">
+      <li>
+        • Developed responsive frontend components using React.js.
+      </li>
+      <li>
+        • Integrated backend APIs and managed database operations using Supabase.
+      </li>
+      <li>
+        • Implemented authentication and structured data workflows for users.
+      </li>
+    </ul>
+  </div>
+
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <span class="rounded-full bg-slate-900 px-3 py-1">MERN</span>
+    <span class="rounded-full bg-slate-900 px-3 py-1">Education</span>
+    <span class="rounded-full bg-slate-900 px-3 py-1">Web Platform</span>
+  </div>
+</article>
+
+
+<!-- Project 2 : AquaFlow -->
+<article
+  class="glass group flex-col justify-between rounded-3xl border border-slate-800 p-5 transition hover:-translate-y-1 hover:border-primary/70 reveal-right"
+>
+  <div>
+    <div
+      class="mb-2 inline-flex items-center gap-2 text-xs text-slate-400"
+    >
+      <span
+        class="rounded-full bg-primary/20 px-2 py-0.5 text-[11px] text-primary"
+        >2026</span
+      >
+      <span>React.js • Node.js • Express.js • Database</span>
+    </div>
+
+    <h3 class="text-lg font-semibold text-slate-100">
+      AquaFlow – Workflow Management System
+    </h3>
+
+    <p class="mt-2 text-sm text-slate-300">
+      A workflow automation platform focused on simplifying task management,
+      process tracking, and improving enterprise productivity.
+    </p>
+
+    <ul class="mt-3 space-y-1.5 text-xs text-slate-300">
+      <li>
+        • Developed interactive user interfaces for workflow operations.
+      </li>
+      <li>
+        • Built API-based communication between frontend and backend modules.
+      </li>
+      <li>
+        • Implemented structured data handling and workflow automation features.
+      </li>
+    </ul>
+  </div>
+
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <span class="rounded-full bg-slate-900 px-3 py-1">Automation</span>
+    <span class="rounded-full bg-slate-900 px-3 py-1">Enterprise</span>
+    <span class="rounded-full bg-slate-900 px-3 py-1">Full Stack</span>
+  </div>
+</article>
+
+
+<!-- Project 3 : Javax Compiler -->
+<article
+  class="glass group flex flex-col justify-between rounded-3xl border border-slate-800 p-5 transition hover:-translate-y-1 hover:border-primary/70 reveal-left"
+>
+  <div>
+    <div
+      class="mb-2 inline-flex items-center gap-2 text-xs text-slate-400"
+    >
+      <span
+        class="rounded-full bg-primary/20 px-2 py-0.5 text-[11px] text-primary"
+        >Mar 2025</span
+      >
+      <span>Java • Servlet • JSP • JavaScript • MySQL</span>
+    </div>
+
+    <h3 class="text-lg font-semibold text-slate-100">
+      Javax Compiler – Online Exam System
+    </h3>
+
+    <p class="mt-2 text-sm text-slate-300">
+      An online Java compiler and examination platform with webcam-based
+      proctoring features to maintain exam integrity.
+    </p>
+
+    <ul class="mt-3 space-y-1.5 text-xs text-slate-300">
+      <li>
+        • Developed real-time Java code compilation and execution features.
+      </li>
+
+      <li>
+        • Implemented webcam proctoring with cheating detection like multiple
+        faces and tab switching.
+      </li>
+
+      <li>
+        • Added automatic exam submission and session management features.
+      </li>
+    </ul>
+  </div>
+
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <span class="rounded-full bg-slate-900 px-3 py-1">Security</span>
+    <span class="rounded-full bg-slate-900 px-3 py-1">Proctoring</span>
+    <span class="rounded-full bg-slate-900 px-3 py-1">Online Exam</span>
+  </div>
+</article>
+
+          <!-- Project 2 -->
+          <article
+            class="glass group flex flex-col justify-between rounded-3xl border border-slate-800 p-5 transition hover:-translate-y-1 hover:border-primary/70 reveal-right"
+          >
+            <div>
+              <div
+                class="mb-2 inline-flex items-center gap-2 text-xs text-slate-400"
+              >
+                <span
+                  class="rounded-full bg-primary/20 px-2 py-0.5 text-[11px] text-primary"
+                  >Dec 2024</span
+                >
+                <span>HTML • CSS • JavaScript • PHP • PostgreSQL</span>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-100">
+                Campus Nexus – College ERP System
+              </h3>
+              <p class="mt-2 text-sm text-slate-300">
+                A college ERP platform managing students, faculty, attendance, and
+                results with secure multi-role dashboards.
+              </p>
+              <ul class="mt-3 space-y-1.5 text-xs text-slate-300">
+                <li>
+                  • Role-based dashboards for admin, faculty, and students with
+                  access control.
+                </li>
+                <li>
+                  • Modules for attendance tracking, result management, and
+                  student profiles.
+                </li>
+                <li>• Secure CRUD operations using PHP and PostgreSQL.</li>
+              </ul>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-slate-900 px-3 py-1">ERP</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">Role Based</span>
+              <span class="rounded-full bg-slate-900 px-3 py-1">College</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section
+        id="education"
+        class="reveal-left border-t border-slate-800 py-12 md:py-16"
+      >
+        <div
+          class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400"
+            >
+              Education
+            </h2>
+            <p class="mt-2 text-2xl font-semibold text-slate-100">
+              Academic Background
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <p class="text-xs text-slate-400">2024 – 2026</p>
+            <h3 class="mt-1 text-sm font-semibold text-slate-100">
+              Master of Computer Application (MCA)
+            </h3>
+            <p class="text-xs text-slate-400">
+              Dr. D. Y. Patil Institute of Management and Research, Pimpri
+            </p>
+            <p class="mt-2 text-sm text-slate-300">CGPA: 8.27</p>
+          </div>
+
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <p class="text-xs text-slate-400">2021 – 2024</p>
+            <h3 class="mt-1 text-sm font-semibold text-slate-100">
+              Bachelor of Computer Science (BCS)
+            </h3>
+            <p class="text-xs text-slate-400">
+              Tuljaram Chaturchand College, Baramati
+            </p>
+            <p class="mt-2 text-sm text-slate-300">CGPA: 7.65</p>
+          </div>
+
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <p class="text-xs text-slate-400">2019 – 2021</p>
+            <h3 class="mt-1 text-sm font-semibold text-slate-100">
+              HSC (12th)
+            </h3>
+            <p class="text-xs text-slate-400">YCIS College, Satara</p>
+            <p class="mt-2 text-sm text-slate-300">Percentage: 84.00%</p>
+          </div>
+
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <p class="text-xs text-slate-400">2018 – 2019</p>
+            <h3 class="mt-1 text-sm font-semibold text-slate-100">
+              SSC (10th)
+            </h3>
+            <p class="text-xs text-slate-400">
+              Maharashtra High School, Khojewadi
+            </p>
+            <p class="mt-2 text-sm text-slate-300">Percentage: 84.40%</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section
+        id="achievements"
+        class="reveal-right border-t border-slate-800 py-12 md:py-16"
+      >
+        <div
+          class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400"
+            >
+              Achievements
+            </h2>
+            <p class="mt-2 text-2xl font-semibold text-slate-100">
+              Certifications & Highlights
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <h3 class="text-sm font-semibold text-slate-100">
+              Competitions & Awards
+            </h3>
+            <ul class="mt-3 space-y-2 text-sm text-slate-300">
+              <li>
+                • 1st Rank — Web Development Competition (Undergraduate Level)
+              </li>
+              <li>
+                • Recognized for leadership and active contribution in technical
+                college events.
+              </li>
+              <li>
+                • Consistently achieved academic excellence with top-tier project
+                evaluations.
+              </li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal">
+            <h3 class="text-sm font-semibold text-slate-100">Certifications</h3>
+            <ul class="mt-3 space-y-2 text-sm text-slate-300">
+              <li>• Cloud Computing — NPTEL</li>
+              <li>• Software Development — Microsoft / LinkedIn</li>
+              <li>• Python Web Development — Infotech Technologies</li>
+              <li>• Java Programming — MBTB</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section
+        id="contact"
+        class="reveal border-t border-slate-800 py-12 md:py-16"
+      >
+        <div class="grid gap-8 md:grid-cols-[3fr,2fr]">
+          <div class="reveal-left">
+            <h2
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400"
+            >
+              Contact
+            </h2>
+            <p class="mt-2 text-2xl font-semibold text-slate-100">
+              Let’s work together
+            </p>
+            <p class="mt-3 text-sm text-slate-300 sm:text-base">
+              Open to internships, freelance work, and full-time opportunities in
+              full stack development, backend development, and ERP/web application
+              projects.
+            </p>
+
+            <div class="mt-6 space-y-3 text-sm text-slate-300">
+              <p>
+                Email:
+                <a
+                  href="mailto:adityaghorpade1002@gmail.com"
+                  class="text-primary hover:underline"
+                  >adityaghorpade1002@gmail.com</a
+                >
+              </p>
+              <p>
+                Phone:
+                <span class="text-slate-200">+91 73858 27935</span>
+              </p>
+              <p>Location: Pune, Maharashtra, India</p>
+            </div>
+
+            <div class="mt-5 flex flex-wrap gap-3 text-sm">
+              <a
+                href="https://linkedin.com/in/aditya-ghorpade1002"
+                target="_blank"
+                class="rounded-full border border-slate-700 px-4 py-1.5 text-slate-200 hover:border-primary hover:text-primary"
+                >LinkedIn</a
+              >
+              <a
+                href="https://github.com/adityaghorpade"
+                target="_blank"
+                class="rounded-full border border-slate-700 px-4 py-1.5 text-slate-200 hover:border-primary hover:text-primary"
+                >GitHub</a
+              >
+            </div>
+          </div>
+
+          <!-- Simple contact card (static) -->
+          <div class="glass rounded-3xl border border-slate-800 p-5 reveal-right">
+            <h3 class="text-sm font-semibold text-slate-100">
+              Quick message (mailto)
+            </h3>
+            <p class="mt-2 text-xs text-slate-400">
+              This is a simple no-backend contact trigger. You can replace it
+              later with a real API (Node.js, Supabase, etc.).
+            </p>
+            <form class="mt-4 space-y-3 text-sm" onsubmit="handleMailto(event)">
+              <div>
+                <label class="mb-1 block text-slate-300">Name</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 outline-none focus:border-primary"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div>
+                <label class="mb-1 block text-slate-300">Email</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 outline-none focus:border-primary"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div>
+                <label class="mb-1 block text-slate-300">Message</label>
+                <textarea
+                  id="contact-message"
+                  rows="3"
+                  class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 outline-none focus:border-primary"
+                  placeholder="Tell me a bit about your project or role..."
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"
+              >
+                Send via Email
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-950/90 py-4">
+      <div
+        class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 text-xs text-slate-500 md:flex-row"
+      >
+        <p>
+          © <span id="year"></span> Aditya Ghorpade. All rights reserved.
+        </p>
+        <p>Built with HTML & Tailwind CSS.</p>
+      </div>
+    </footer>
+
+    <!-- JS: mobile menu, year, mailto, scroll animations -->
+    <script>
+      // Mobile menu toggle
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      }
+
+      // Footer year
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      // Mailto handler
+      function handleMailto(e) {
+        e.preventDefault();
+        const name = document.getElementById("contact-name").value;
+        const email = document.getElementById("contact-email").value;
+        const message = document.getElementById("contact-message").value;
+
+        const subject = encodeURIComponent(
+          "Portfolio Contact from " + name
+        );
+        const body = encodeURIComponent(
+          "Name: " +
+            name +
+            "\nEmail: " +
+            email +
+            "\n\nMessage:\n" +
+            message
+        );
+
+        window.location.href =
+          "mailto:adityaghorpade1002@gmail.com?subject=" +
+          subject +
+          "&body=" +
+          body;
+      }
+
+      // Scroll reveal animations
+      const revealElements = document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
+      );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      revealElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
